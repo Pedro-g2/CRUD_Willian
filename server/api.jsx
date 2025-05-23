@@ -14,22 +14,27 @@ app.use(cors(corsOptions));
 
 // Lista de tarefas simulada
 let tarefas = [
-  { id: 1, titulo: 'Estudar React', concluida: false },
-  { id: 2, titulo: 'Criar um projeto Tailwind', concluida: true }
 ];
 
 // CRUD da lista de tarefas
 app.get('/tarefas', (req, res) => res.json(tarefas));
 app.post('/tarefas', (req, res) => {
-  const { titulo } = req.body;
-  const novaTarefa = { id: tarefas.length + 1, titulo, concluida: false };
+  const { titulo, descricao } = req.body;
+  const novaTarefa = {
+    id: tarefas.length + 1,
+    titulo,
+    descricao,
+    concluida: false
+  };
   tarefas.push(novaTarefa);
   res.status(201).json(novaTarefa);
 });
+
 app.put('/tarefas/:id', (req, res) => {
   const tarefa = tarefas.find(t => t.id === parseInt(req.params.id));
   if (tarefa) {
     tarefa.titulo = req.body.titulo ?? tarefa.titulo;
+    tarefa.descricao = req.body.descricao ?? tarefa.descricao;
     tarefa.concluida = req.body.concluida ?? tarefa.concluida;
     res.json(tarefa);
   } else {
@@ -43,3 +48,4 @@ app.delete('/tarefas/:id', (req, res) => {
 
 const PORT = 3001;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+
