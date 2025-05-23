@@ -4,17 +4,17 @@ import { BrowserRouter as Router, Routes, Route, useNavigate, Link } from "react
 import InserirTarefa from "./InserirTarefa";
 import VisualizarTarefas from "./VisualizarTarefas";
 
-// Componente Home com botões de navegação
+// Componente Home sem estilização
 function Home() {
   return (
-    <div className="flex flex-col items-center pt-16 min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-8">Bem-vindo ao Gerenciador de Tarefas</h1>
-      <div className="flex gap-4">
+    <div>
+      <h1>Bem-vindo ao Gerenciador de Tarefas</h1>
+      <div>
         <Link to="/inserir">
-          <button className="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition">Inserir Tarefa</button>
+          <button>Inserir Tarefa</button>
         </Link>
         <Link to="/visualizar">
-          <button className="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition">Visualizar Tarefas</button>
+          <button>Visualizar Tarefas</button>
         </Link>
       </div>
     </div>

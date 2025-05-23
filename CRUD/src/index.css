@@ -67,6 +67,24 @@ button:focus-visible {
   }
 }
 
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
+ul {
+    list-style-type: none; 
+    
+}
+
+.li {
+  padding: 10px;
+  border: black;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.titulo_card{
+  font-size: 18px;
+}
+
+.botao {
+  padding: 10px;
+}
